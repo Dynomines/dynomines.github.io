@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+.bodyNav {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+   
+.topnav {
+  overflow: hidden;
+  background-color: #282b30;
+  }  
+   
+.topnav a {
+  font-weight: bold;
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}   
+   
+.topnav a:hover {
+  background-color: #2e2e2e;
+  color: #ffffff;
+}  
+  
+.topnav a.active {
+  background-color: #1f1f1f;
+  color: #ffffff;
+}
+
+.rounded-box {
+  padding: 20px;
+  background: #1f1f1f;
+  border-radius: 20px;
+  width: 250px;
+  height: 300px;
+
+}
+
+.img {
+  height: 250px;
+  width: 200px;
+  position: fixed;
+}
+
+.montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.button {
+  margin-bottom: 20px;
+  text-align: center;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 7px;
+  color: #ffffff;
+  border-style: hidden;
+  background: #424549;
+  transition-duration: 0.4s;
+}
+
+.button:hover {
+  text-align: center;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 7px;
+  color: #424549;
+  border-style: hidden;
+  background: #ffffff;
+}
