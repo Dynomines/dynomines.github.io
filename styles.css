@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
 .bodyNav {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
 }
    
 .topnav {
+  resize: none;
   overflow: hidden;
   background-color: #282b30;
   }  
@@ -35,14 +39,24 @@
   background: #1f1f1f;
   border-radius: 20px;
   width: 250px;
-  height: 300px;
+  height: auto;
+  padding-bottom: 50px;
 
 }
 
 .img {
-  height: 250px;
-  width: 200px;
-  position: fixed;
+  height: auto;
+  width: auto;
+}
+
+.small-ico {
+  height: 32px;
+  width: 32px;
+}
+
+.max-size {
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .montserrat {
@@ -64,6 +78,18 @@
 }
 
 .button:hover {
+  text-align: center;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 7px;
+  color: #424549;
+  border-style: hidden;
+  background: #ffffff;
+}
+
+.button:active {
   text-align: center;
   padding-top: 6px;
   padding-bottom: 6px;
