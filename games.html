@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script type="text/javascript">
+      function goToNewPage()
+      {
+          var url = document.getElementById('list').value;
+          if(url != 'none') {
+              window.location = url;
+          }
+      }
+  </script>
     <link rel="stylesheet" href="styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
@@ -8,7 +17,7 @@
     <div class="topnav">
       <a href="index.html">Home</a>
       <a class="active" href="games.html">Games</a>
-      <a href="projects.html">Other Things</a>
+      <a href="other-things.html">Other Things</a>
       <a target="_blank" style="float: right;" href="https://github.com/dynomines">Dynomines</a>
     </div>
   </body>
@@ -16,20 +25,68 @@
     Dynomines | Games
   </title>
   <body style="background-color: #36393e; color: #f2f2f2;">
-    <center>
-      <div style="background: #282b30; margin-right: 300px; margin-left: 300px; border-radius: 10px; border-top-left-radius: 0px; border-top-right-radius: 0px; padding-top: 1px; padding-bottom: 20px;">
-        <h1>Dynomines</h1>
-        <h2>Games</h2>
-        <div class="rounded-box">
-          <h2 style="text-align: left; font-weight: bold;">Test</h2>
-          <p style="text-align: left; word-wrap: break-word;">
-            This is a test paragraph.
-          </p>
-          <a href="drugz.html">
-            <button style="float: left; margin-bottom: 30px;" class="button">Test Button</button>
+    <div style="background: #282b30; margin-right: 300px; margin-left: 300px; border-radius: 10px; border-top-left-radius: 0px; border-top-right-radius: 0px; padding-top: 1px; padding-bottom: 20px;">
+      <div>
+        <center>
+          <h1>Dynomines</h1>
+          <h2>Games</h2>
+        </center>
+      </div>
+      <div class="grid-container">
+        <div style="margin: 20px; display: inline-block;" class="rounded-box">
+        <h2 style="text-align: left; font-weight: bold;">Subway Surfers</h2>
+        <p style="text-align: left; word-wrap: break-word;">
+          <div class="dropdown">
+            <button class="button">Play</button>
+            <div style="margin: 0;" class="dropdown-content">
+              <a href="games/subway-surfers/san-francisco.html">San Francisco</a>
+              <a href="games/subway-surfers/beijing.html">Beijing</a>
+              <a href="games/subway-surfers/berlin.html">Berlin</a>
+              <a href="games/subway-surfers/havana.html">Havana</a>
+              <a href="games/subway-surfers/houston.html">Houston</a>
+              <a href="games/subway-surfers/london.html">London</a>
+              <a href="games/subway-surfers/new-orleans.html">New Orleans</a>
+              <a href="games/subway-surfers/zurich.html">Zurich</a>
+            </div>
+          </div>
+        </div>
+        <div style="margin: 20px; display: inline-block;" class="rounded-box">
+          <h2 style="text-align: left; font-weight: bold;">Microsoft Solitaire Collection</h2>
+          <a href="games/ms-solitaire.html">
+            <button style="float: left; margin-bottom: 0px;" class="button">Play</button>
           </a>
+        </div>
+        <div style="margin: 20px; display: inline-block;" class="rounded-box">
+          <h2 style="text-align: left; font-weight: bold;">Fruit Ninja</h2>
+          <a href="games/fruit-ninja.html">
+            <button style="float: left; margin-bottom: 0px;" class="button">Play</button>
+          </a>
+        </div>
+        <div style="margin: 20px; display: inline-block;" class="rounded-box">
+          <h2 style="text-align: left; font-weight: bold;">Apple Knight</h2>
+          <a href="games/apple-knight.html">
+            <button style="float: left; margin-bottom: 0px;" class="button">Play</button>
+          </a>
+        </div>
+        <div style="margin: 20px; display: inline-block;" class="rounded-box">
+          <h2 style="text-align: left; font-weight: bold;">Crossy Road</h2>
+          <a href="games/crossy-road.html">
+            <button style="float: left; margin-bottom: 0px;" class="button">Play</button>
+          </a>
+        </div>
+        <div style="margin: 20px; display: inline-block;" class="rounded-box">
+          <h2 style="text-align: left; font-weight: bold;">Angry Birds</h2>
+          <a href="games/angry-birds.html">
+            <button style="float: left; margin-bottom: 0px;" class="button">Play</button>
+          </a>
+        </div>
+        <div style="margin: 20px; display: inline-block;" class="rounded-box">
+          <h2 style="text-align: left; font-weight: bold;">Doodle God</h2>
+          <a href="games/doodle-god.html">
+            <button style="float: left; margin-bottom: 0px;" class="button">Play</button>
+          </a>
+        </div>
       </div>
-      </div>
-    </center>
+    </div>
   </body>
 </html>

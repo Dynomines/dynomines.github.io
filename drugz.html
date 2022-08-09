@@ -1,13 +1,67 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <script type="text/javascript">
+            function goToNewPage()
+            {
+                var url = document.getElementById('list').value;
+                if(url != 'none') {
+                    window.location = url;
+                }
+            }
+        </script>
+        <link rel="stylesheet" href="styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body class="bodyNav">
+        <div class="topnav">
+          <a href="index.html">Home</a>
+          <a href="games.html">Games</a>
+          <a href="projects.html">Other Things</a>
+          <a class="active" href="drugz.html">Drugz</a>
+          <a target="_blank" style="float: right;" href="https://github.com/dynomines">Dynomines</a>
+        </div>
+    </body>
     <title>
         Drugz
     </title>
-    <body>
+    <body style="background: #36393e;">
         <h1>
             <center>
-                <a href="games.html">Drugz</a>
+                <label for="drugz">Choose type of Drugz:</label>
+                <form>
+                    <select name="drug-types" id="list" accesskey="target">
+                        <option value="index.html">Drugz</option>
+                        <option value="games/ms-solitaire.html">420</option>
+                        <option value="more-drugz">More Drugz</option>
+                    </select>
+                    <input type=button value="Go" onclick="goToNewPage()" />
+                </form>
             </center>
         </h1>
+        <div class="dropdown">
+            <button class="button">Dropdown</button>
+            <div class="dropdown-content">
+              <a href="index.html">Home</a>
+              <a href="#">Link 2</a>
+              <a href="#">Link 3</a>
+            </div>
+        </div>
+        <form>
+            <select name="list" id="list" accesskey="target">
+                <option value='none' selected>Choose a theme</option>
+                <option value="index.html">Theme 1</option>
+                <option value="theme2.html">Theme 2</option>
+                <option value="theme3.html">Theme 3</option>
+            </select>
+            <input type=button value="Go" onclick="goToNewPage()" />
+        </form>
     </body>
+    <footer class="montserrat text">
+        <body class="bodyNav">
+            <div class="topnav" style="float: none;"><center>
+                <a href="index.html">Home</a>
+            </center></div>
+        </body>
+    </footer>
 </html>
