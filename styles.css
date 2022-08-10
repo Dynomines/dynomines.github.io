@@ -9,6 +9,18 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+.middle-colum {
+  overflow: hidden; 
+  background: #282b30; 
+  margin-right: 300px; 
+  margin-left: 300px; 
+  border-radius: 10px; 
+  border-top-left-radius: 0px; 
+  border-top-right-radius: 0px; 
+  padding-top: 1px; 
+  padding-bottom: 20px;
+}
+
 .bodyNav {
   margin: 0;
 }
@@ -42,10 +54,11 @@ body {
 }
 
 .rounded-box {
+  padding-right: 25px;
   padding: 20px;
   background: #1f1f1f;
   border-radius: 20px;
-  min-width: 250px;
+  min-width: 100px;
   height: auto;
 }
 
@@ -162,5 +175,5 @@ footer {
 
 .grid-container {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
