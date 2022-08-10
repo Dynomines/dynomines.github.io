@@ -12,8 +12,8 @@ body {
 .middle-colum {
   overflow: hidden; 
   background: #282b30; 
-  margin-right: 300px; 
-  margin-left: 300px; 
+  margin-right: 15%; 
+  margin-left: 15%; 
   border-radius: 10px; 
   border-top-left-radius: 0px; 
   border-top-right-radius: 0px; 
@@ -27,6 +27,9 @@ body {
    
 .topnav {
   margin: 0;
+  top: 0px; 
+  margin-top: 0; 
+  position: sticky;
   resize: none;
   overflow: hidden;
   background-color: #282b30;
