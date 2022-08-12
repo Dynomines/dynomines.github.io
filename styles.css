@@ -151,6 +151,7 @@ footer {
 }
 
 .dropdown-content {
+  top: 28px;
   border-radius: 10px;
   color: #ffffff;
   display: none;
@@ -179,4 +180,11 @@ footer {
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.full-iframe {
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  border: none
 }
