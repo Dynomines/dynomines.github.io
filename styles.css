@@ -23,9 +23,11 @@ body {
 
 .bodyNav {
   margin: 0;
+  z-index: 2;
 }
    
 .topnav {
+  z-index: 2;
   margin: 0;
   top: 0px; 
   margin-top: 0; 
