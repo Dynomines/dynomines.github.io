@@ -1,4 +1,4 @@
-const lines = [
+const lines_bigger = [
     "Booting up...",
     "Loading modules...",
     "Loading games, mods, and experiments...",
@@ -14,6 +14,28 @@ const lines = [
     "Type `help` to begin.",
     " "
 ];
+const lines_smaller = [
+	    "Booting up...",
+    "Loading modules...",
+    "Loading games, mods, and experiments...",
+    "Done...",
+	"    ____              ____  _____",
+	"   / __ \\__  ______  / __ \\/ ___/",
+	"  / / / / / / / __ \\/ / / /\\__ \\ ",
+	" / /_/ / /_/ / / / / /_/ /___/ / ",
+	"/_____/\\__, /_/ /_/\\____//____/  ",
+	"       /____/                     ",
+	"                                  ",
+	"    D Y N O M I N E S   O S       ",
+    " ",
+    "Type `help` to begin.",
+    " "
+]
+
+let lines = []
+let cmdHistory = []
+let cmdHistoryIndex = 0;
+let cmdHistoryIndexShown = 0;
 
 const README_MAIN = [
     "# dynomines.dev",
@@ -38,6 +60,22 @@ const README_MAIN = [
 
 let lineIndex = 0;
 let promptNewline;
+
+function getAspectRatio(width, height) {
+	function gcd(a, b) { return b === 0 ? a : gcd(b, a % b); }
+	let divisor = gcd(width, height);
+	return `${width / divisor}:${height / divisor}`;
+}
+
+let aspect_ratio = window.innerWidth / window.innerHeight
+let smallBoot = false
+if (aspect_ratio < (16/9)) {
+	smallBoot = true;
+	lines = lines_smaller;
+} else { 
+	smallBoot = false;
+	lines = lines_bigger;
+}
 
 function typeLine() {
 	return new Promise((resolve) => {
@@ -94,6 +132,7 @@ function createPrompt() {
 
 	const input = document.createElement("input");
 	input.type = "text";
+	input.style.width = (window.innerWidth - promptLine.offsetWidth - (window.innerWidth/100)) + "px";
 	input.autofocus = true;
 	input.spellcheck = false;
 	input.style.background = "transparent";
@@ -108,25 +147,77 @@ function createPrompt() {
 
 	input.focus();
 
+	let currentText = "";
+
 	input.addEventListener("keydown", (e) => {
-		if (e.key === "Enter") {
-			const command = input.value.trim();
-			if (command.length === 0) {
-				// Empty command: just re-show prompt
+		let el = document.activeElement;
+
+		switch (e.key) {
+			case "Enter":
+				const command = input.value.trim();
+				if (command.length > 0) {
+					cmdHistory.push(command);
+				}
+				cmdHistoryIndexShown = -1;
+				currentText = "";
+				if (command.length === 0) {
+					// Empty command: just re-show prompt
+					terminal.removeChild(promptLine);
+					createPrompt();
+					return;
+				}
 				terminal.removeChild(promptLine);
-				createPrompt();
-				return;
-			}
-			terminal.removeChild(promptLine);
 
-			// Print the command entered:
-			const cmdPrint = document.createElement("p");
-			cmdPrint.innerHTML = `<span class="prompt">guest@dynomines.dev:~` + promptNewline + `$ </span>${command}`;
-			terminal.appendChild(cmdPrint);
+				// Print the command entered:
+				const cmdPrint = document.createElement("p");
+				cmdPrint.innerHTML = `<span class="prompt">guest@dynomines.dev:~` + promptNewline + `$ </span>${command}`;
+				terminal.appendChild(cmdPrint);
 
-			// Process the command:
-			processCommand(command);
+				// Process the command:
+				processCommand(command);
+				break;
+			
+			case "ArrowUp":
+				e.preventDefault();
+				if (el && el.tagName === "INPUT") {
+					if (cmdHistoryIndexShown == -1) {
+						currentText = el.value;
+						cmdHistoryIndexShown = cmdHistory.length - 1;
+					} else if (cmdHistoryIndexShown > 0) {
+						cmdHistoryIndexShown--;
+					}
+					if (cmdHistory[cmdHistoryIndexShown] !== undefined) {
+						el.value = cmdHistory[cmdHistoryIndexShown];
+					}
+					el.setSelectionRange(el.value.length, el.value.length);
+					el.focus();
+				}
+				break;
+			
+			case "ArrowDown":
+				e.preventDefault();
+				if (el && el.tagName === "INPUT") {
+					if (cmdHistoryIndexShown !== -1) {
+						if (cmdHistoryIndexShown < cmdHistory.length - 1) {
+							cmdHistoryIndexShown++;
+							el.value = cmdHistory[cmdHistoryIndexShown] ?? "";
+						} else {
+							cmdHistoryIndexShown = -1;
+							el.value = currentText;
+						}
+					}
+					el.setSelectionRange(el.value.length, el.value.length);
+					el.focus();
+				}
+				break;
+			default:
+				setTimeout(() => {
+					if (cmdHistoryIndexShown === -1) {
+						currentText = el.value;
+					}
+				}, 0);
 		}
+		console.log(cmdHistoryIndexShown);
 	});
 
 	terminal.scrollTop = terminal.scrollHeight;
